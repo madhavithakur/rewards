@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { useReducer } from 'react';
 import './App.css';
+import RewardsDashboard from './components/RewardsDashboardComponent';
+import { StoreContext } from './store';
+import { INITIAL_STATE, reducer } from './store/reducer';
+
 
 function App() {
+
+  const [globalState, dispatch] = useReducer(reducer, INITIAL_STATE)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StoreContext.Provider value={[globalState, dispatch]}>
+        <RewardsDashboard />
+      </StoreContext.Provider>
     </div>
   );
 }
