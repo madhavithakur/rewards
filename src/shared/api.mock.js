@@ -73,11 +73,12 @@ const calculateUpdatedData = (txnData) => {
 
     for (let custKey in totalPointsCustomerData) {    
         totcustomerMonthlyData.push({
-        name: updatedTransactionsWithPoints.filter(txn=>txn.custId===+custKey)[0].name,
-        rewardPoints: totalPointsCustomerData[custKey]
+            custId: custKey,
+            name: updatedTransactionsWithPoints.filter(txn=>txn.custId===+custKey)[0].name,
+            rewardPoints: totalPointsCustomerData[custKey]
         });    
     }
-    
+
     return {
         customerMonthlyData: total,
         totalPointsCustomerData: totcustomerMonthlyData

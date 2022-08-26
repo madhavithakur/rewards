@@ -65,9 +65,9 @@ const RewardsDashboard = () => {
                                 <th>Customer Name</th>
                                 <th>Total Reward Points</th>
                             </tr>
-                            {transactionsData.totalPointsCustomerData.map((val, key) => {
+                            {transactionsData.totalPointsCustomerData.map((val) => {
                                 return (
-                                    <tr key={key}>
+                                    <tr key={val.custId}>
                                         <td>{val.name}</td>
                                         <td>{val.rewardPoints}</td>
                                     </tr>
